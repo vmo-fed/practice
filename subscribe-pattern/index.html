@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        margin: 20px;
+        color: #fff;
+      }
+
+      .box-c {
+        position: absolute;
+        right: 200px;
+        top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    </div>
+    <script type="text/javascript">
+
+      // event bus
+      var event = {
+        store: {},
+        emit: function (key, data) {
+          this.store[key].forEach(function (callback) {
+            callback(data)
+          })
+        },
+        on: function (key, callback) {
+          this.store[key] = this.store[key] || [];
+          this.store[key].push(callback)
+        }
+      }
+
+      // 异步获取数据 service
+      setTimeout(function () {
+        event.emit('user', {name: 'qiqi'});
+      }, 1000)
+
+      setTimeout(function () {
+        event.emit('book', {name: '一千零一夜'});
+      }, 1100)
+    </script>
+    <script type="text/javascript" src="./bundle.js">
+
+    </script>
+  </body>
+</html>

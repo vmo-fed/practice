@@ -1,0 +1,17 @@
+{
+  "name": "subscribe-pattern",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browserify -t pugify index.js -o bundle.js && open index.html"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "pug": "^2.0.3",
+    "pugify": "^2.2.0"
+  }
+}
